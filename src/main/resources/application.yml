@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: task-queue
+
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework: INFO

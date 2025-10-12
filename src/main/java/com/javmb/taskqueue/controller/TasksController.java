@@ -25,10 +25,10 @@ public class TasksController {
     @PostMapping
     public ResponseEntity<Long> createTask(@Valid @RequestBody CreateTaskDto taskDto) {
 
-        Task created = new Task(taskDto.getDescription());
+        Task created = new Task(taskDto.getDescription(), taskDto.getPayload(),taskDto.getType());
         long newId = repository.saveTask(created);
 
-        URI location = URI.create("/tasks/" + created.getId());
+        URI location = URI.create("/tasks/" + newId);
         return ResponseEntity.created(location).body(newId);
     }
 
