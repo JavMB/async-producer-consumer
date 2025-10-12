@@ -1,5 +1,7 @@
 package com.javmb.taskqueue.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 /**
  * Procesador de tareas genérico.
  * Similar al patrón RequestHandler del Mediator.
@@ -11,10 +13,10 @@ public interface TaskProcessor<R> {
     /**
      * Procesa una tarea y devuelve un resultado tipado.
      *
-     * @param task La tarea a procesar
+     * @param payload La tarea a procesar
      * @return El resultado del procesamiento
      */
-    R handle(Task task);
+    R handle(JsonNode payload);
 
     /**
      * Retorna el tipo de tarea que este procesador puede manejar.

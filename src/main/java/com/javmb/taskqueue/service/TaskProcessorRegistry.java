@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
  * Registro de procesadores de tareas.
  * Similar al Mediator, mantiene un mapa de Type -> TaskProcessor.
  * Usa el Type de la tarea como clave (similar a usar la clase de Request en el Mediator).
+ * Pero nos da el procesador en vez de procesar en la propia clase.
  */
 @Service
 @Slf4j
@@ -30,8 +31,8 @@ public class TaskProcessorRegistry {
                 .collect(Collectors.toMap(
                         TaskProcessor::getType,
                         Function.identity(),
-                        (existing, replacement) -> existing,
-                        () -> new EnumMap<>(Type.class)
+                        (existing, replacement) -> existing, // para evitar sobrescribir
+                        () -> new EnumMap<>(Type.class) // optimizado para enums
                 ));
 
         log.info("Registered {} task processors", processors.size());

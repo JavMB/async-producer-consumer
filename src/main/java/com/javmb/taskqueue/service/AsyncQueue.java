@@ -104,7 +104,7 @@ public class AsyncQueue implements InitializingBean, DisposableBean {
 
                 TaskProcessor<?> processor = processorRegistry.get(task.getType());
 
-                Object result = processor.handle(task);
+                Object result = processor.handle(task.getPayload());
 
                 task.setResult(result != null ? result.toString() : null);
                 task.setStatus(Status.DONE);
