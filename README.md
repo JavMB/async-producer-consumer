@@ -16,6 +16,8 @@ La aplicación expone un endpoint HTTP para crear tareas, que se almacenan en un
 
 Cada tarea tiene un tipo y es procesada por un procesador específico según su tipo. Los procesadores se despachan automáticamente y ejecutan la lógica correspondiente para cada tarea.
 
+![Esquema Producer-Consumer](src/main/resources/static/producer-consumeer.jpg)
+
 ## Tecnologías utilizadas
 - Java 17+
 - Spring Boot
