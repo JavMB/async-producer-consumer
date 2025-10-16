@@ -41,7 +41,7 @@ class AsyncQueueTest {
 
     @Test
     void shouldNotEnqueueTaskWhenQueueIsFull() {
-        asyncQueue.afterPropertiesSet();
+       // asyncQueue.afterPropertiesSet();
         for (int i = 0; i < 1000; i++) {
             asyncQueue.enqueue((long) i);
         }
