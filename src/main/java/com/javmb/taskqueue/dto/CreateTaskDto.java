@@ -3,6 +3,7 @@ package com.javmb.taskqueue.dto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.javmb.taskqueue.model.Type;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ public class CreateTaskDto {
     @Size(max = 200)
     private String description;
 
-    @NotBlank
+    @NotNull
     private Type type;
 
     private JsonNode payload;
